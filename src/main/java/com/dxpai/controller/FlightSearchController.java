@@ -1,13 +1,13 @@
 package com.dxpai.controller;
 
-import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.dxpai.config.AppConfiguration;
 import com.dxpai.model.BestFlight;
 import com.dxpai.predict.GenAIService;
 import com.dxpai.serp.GoogleSearch;
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

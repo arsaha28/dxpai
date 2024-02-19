@@ -1,5 +1,6 @@
 package com.dxpai.controller;
 
+import com.dxpai.config.AppConfiguration;
 import dev.langchain4j.model.input.Prompt;
 import dev.langchain4j.model.input.PromptTemplate;
 import dev.langchain4j.model.output.Response;
@@ -11,13 +12,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 @Tag(name = "Transaction Classification", description = "Identify Transaction Category")
 @RestController
 public class TransactionClassificationController {
 
-
+    @Autowired
+    private AppConfiguration appConfiguration;
     @Autowired
     private VertexAiLanguageModel model;
 
@@ -33,13 +36,12 @@ public class TransactionClassificationController {
     }
 
     @RequestMapping(value = "/suggest", method = RequestMethod.POST)
-    public String suggest(@RequestBody String jsonData){
-        PromptTemplate promptTemplate = PromptTemplate.from("These are my transactions {{jsonData}}.Can you filter only london transactions?Create valid JSON array.The JSON object:`.trim()\"" );
+    public String suggest(@RequestBody String jsonData,String query) throws IOException {
+        PromptTemplate promptTemplate = PromptTemplate.from(query+"{{jsonData}}");
         Map<String, Object> variables = new HashMap<>();
         variables.put("jsonData", jsonData);
         Prompt prompt = promptTemplate.apply(variables);
         Response<String> response = model.generate(prompt);
         return response.content();
-
     }
 }

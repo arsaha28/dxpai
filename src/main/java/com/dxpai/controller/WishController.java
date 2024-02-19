@@ -1,14 +1,14 @@
 package com.dxpai.controller;
 
+import com.dxpai.config.AppConfiguration;
+import com.dxpai.model.Destination;
+import com.dxpai.predict.GenAIService;
 import com.google.cloud.storage.BlobId;
 import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Storage;
 import com.google.cloud.storage.StorageOptions;
 import com.google.cloud.vision.v1.*;
 import com.google.gson.Gson;
-import com.dxpai.config.AppConfiguration;
-import com.dxpai.model.Destination;
-import com.dxpai.predict.GenAIService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
