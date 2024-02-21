@@ -18,6 +18,6 @@ public class SwaggerConfig {
                 .components(new Components().addSecuritySchemes(securitySchemeName,
                         new SecurityScheme().name(securitySchemeName).type(SecurityScheme.Type.HTTP).scheme("bearer")
                                 .bearerFormat("JWT")))
-                .info(new Info().title("Travel Hub").description("APIs for Travel Hub").version("1.0"));
+                .info(new Info().title("DXP AI").description("DXP APIs").version("1.0"));
     }
 }

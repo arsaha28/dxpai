@@ -1,10 +1,13 @@
 package com.dxpai.config;
 
 
+import com.google.cloud.aiplatform.v1.PredictionServiceSettings;
 import dev.langchain4j.model.vertexai.VertexAiLanguageModel;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.io.IOException;
 
 @Configuration
 public class AppConfiguration {
@@ -31,6 +34,9 @@ public class AppConfiguration {
     @Value("${serpAPIKey}")
     private String serpAPIKey;
 
+    @Value("${endpointId}")
+    private String endpointId;
+
     @Bean
     public VertexAiLanguageModel model(){
         VertexAiLanguageModel model = VertexAiLanguageModel.builder()
@@ -42,6 +48,15 @@ public class AppConfiguration {
                 .maxOutputTokens(Integer.parseInt(maxOutputTokens))
                 .build();
         return model;
+    }
+
+    @Bean
+    public PredictionServiceSettings settings() throws IOException {
+        PredictionServiceSettings predictionServiceSettings =
+                PredictionServiceSettings.newBuilder()
+                        .setEndpoint("us-central1-aiplatform.googleapis.com:443")
+                        .build();
+        return predictionServiceSettings;
     }
 
     public String getEndpoint() {
@@ -79,4 +94,9 @@ public class AppConfiguration {
     public String getSerpAPIKey() {
         return serpAPIKey;
     }
+
+    public String getEndpointId() {
+        return endpointId;
+    }
+
 }
