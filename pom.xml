@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.3.0-M1</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 	<groupId>com.dxp</groupId>
 	<artifactId>dxpai</artifactId>
@@ -90,32 +90,20 @@
 			<artifactId>gson</artifactId>
 			<version>2.10.1</version>
 		</dependency>
-		<!--<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>31.1-jre</version>
-		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!--<dependency>
-			<groupId>dev.langchain4j</groupId>
-			<artifactId>langchain4j-vertex-ai-gemini</artifactId>
-			<version>0.27.1</version>
-		</dependency>-->
 		<dependency>
 			<groupId>com.google.cloud</groupId>
 			<artifactId>google-cloud-vertexai</artifactId>
 			<version>0.1.0</version>
 		</dependency>
-			<dependency>
-				<groupId>com.google.cloud</groupId>
-				<artifactId>google-cloud-vertexai</artifactId>
-			</dependency>
-
-
+		<dependency>
+			<groupId>com.google.cloud</groupId>
+			<artifactId>google-cloud-vertexai</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
